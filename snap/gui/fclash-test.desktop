@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=fclash
-Comment=A Clash Proxy Fronted.
-Exec=fclash
+Name=FClash
+Comment=A Clash Proxy Frontend.
+Exec=fclash-test
 Icon=${SNAP}/meta/gui/fclash.png
 Terminal=false
 Type=Application
