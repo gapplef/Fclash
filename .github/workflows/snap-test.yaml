@@ -1,0 +1,31 @@
+name: Snap Package
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - patch-1
+    paths-ignore:
+      - README.md
+      - .github/**
+      - docs/**
+      - PKGBUILD
+      - .SRCINFO
+      - LICENSE
+
+jobs:
+  build-snap-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+      - name: Use Snapcraft
+        uses: snapcore/action-build@v1
+        id: build
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: mysnap
+          path: fclash*.snap
+          retention-days: 1
